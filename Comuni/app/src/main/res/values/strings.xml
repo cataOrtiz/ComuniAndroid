@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">Comuni</string>
+    <string name="usuario">Usuario</string>
+    <string name="login_contraseña">Contraseña</string>
+    <string name="inicio_sesion">Iniciar Sesion</string>
+    <string name="registrarse">Registrarse</string>
+    <string name="ingrese_datos">Ingrese sus datos</string>
+    <string name="fecha_nacimiento">Fecha de nacimiento</string>
+    <string name="email">Email</string>
+    <string name="telefono">Teléfono</string>
+    <string name="nombre">Nombre</string>
+    <string name="apellido">Apellido</string>
+    <string name="texto_contraseña">Contraseña</string>
+    <string name="repetir_contraseña">Repetir contraseña</string>
+    <string name="comuna">Comuna</string>
+    <string name="direccion">Dirección</string>
+    <string name="boton_aceptar">Aceptar</string>
+    <string name="menu_ver_eventos">Ver eventos</string>
+    <string name="menu_notificaciones">Notificaciones</string>
+    <string name="menu_editar_perfil">Editar perfil</string>
+    <string name="menu_solicitud">Solicitud</string>
+    <string name="menu_salir">Salir</string>
+</resources>
