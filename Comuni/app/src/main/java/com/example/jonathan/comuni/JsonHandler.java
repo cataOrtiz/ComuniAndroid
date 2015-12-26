@@ -27,4 +27,24 @@ public class JsonHandler {
         }
         return null;
     }
+
+    public String[] getUsuarios(String usuarios) {
+        try {
+            JSONArray ja = new JSONArray(usuarios);
+            String[] result = new String[ja.length()];
+            String usuario;
+            for (int i = 0; i < ja.length(); i++) {
+                JSONObject row = ja.getJSONObject(i);
+                usuario = row.getString("email")+"+"+row.getString("password");
+                result[i] = usuario;
+            }
+            return result;
+        } catch (JSONException e) {
+            Log.e("ERROR", this.getClass().toString() + " " + e.toString());
+        }
+        return null;
+    }
+
+
+
 }

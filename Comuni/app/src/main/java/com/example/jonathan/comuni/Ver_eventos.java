@@ -44,7 +44,7 @@ public class Ver_eventos extends AppCompatActivity implements AdapterView.OnItem
 
                 JsonHandler jh = new JsonHandler();
                 String[] eventos = jh.getEventos(intent.getStringExtra("data"));
-                ArrayAdapter<String> DataEventos = new ArrayAdapter<String>(context,android.R.layout.simple_expandable_list_item_1,eventos);
+                ArrayAdapter<String> DataEventos = new ArrayAdapter<String>(context, android.R.layout.simple_expandable_list_item_1, eventos);
                 evento.setAdapter(DataEventos);
             }
         };
@@ -84,17 +84,20 @@ public class Ver_eventos extends AppCompatActivity implements AdapterView.OnItem
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.ver_eventos:
-                Intent ver_evento = new Intent(Ver_eventos.this, Ver_eventos.class);
+                Intent ver_evento = getIntent();
+                finish();
                 startActivity(ver_evento);
                 break;
             case R.id.notificaciones:
                 Toast.makeText(getApplicationContext(), "Aprete notificaciones", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.editar_perfil:
-                Toast.makeText(getApplicationContext(), "Aprete editar perfil", Toast.LENGTH_SHORT).show();
+                Intent editar_perfil = new Intent(Ver_eventos.this, Editar_perfil.class);
+                startActivity(editar_perfil);
                 break;
             case R.id.solicitud:
-                Toast.makeText(getApplicationContext(), "Aprete Solicitud", Toast.LENGTH_SHORT).show();
+                Intent solicitar_evento = new Intent(Ver_eventos.this, Solicitar_evento.class);
+                startActivity(solicitar_evento);
                 break;
             case R.id.salir:
                 finish();

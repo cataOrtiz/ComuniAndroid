@@ -5,7 +5,7 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
-    tools:context="com.example.jonathan.comuni.RegistroActivity"
+    tools:context="com.example.jonathan.comuni.Editar_perfil"
     android:orientation="vertical"
     >
 
@@ -19,16 +19,16 @@
             android:orientation="vertical"
             >
             <TextView
-                android:id="@+id/ingresar_datos"
+                android:id="@+id/modificar_datos"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/ingrese_datos"
+                android:text="@string/modificar_datos"
                 android:layout_gravity="center"
                 android:layout_marginBottom="20dp"
                 />
 
             <TextView
-                android:id="@+id/email"
+                android:id="@+id/email_perfil"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/email"
@@ -42,40 +42,40 @@
                 android:id="@+id/editText2" />
 
             <TextView
-                android:id="@+id/nombre"
+                android:id="@+id/nombre_perfil"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/nombre"
                 />
 
             <EditText
-                android:id="@+id/edit_nombre"
+                android:id="@+id/edit_nombre_perfil"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 />
 
             <TextView
-                android:id="@+id/apellido"
+                android:id="@+id/apellido_perfil"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/apellido"
                 />
 
             <EditText
-                android:id="@+id/edit_apellido"
+                android:id="@+id/edit_apellido_perfil"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 />
 
             <TextView
-                android:id="@+id/contraseña"
+                android:id="@+id/contraseña_perfil"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/texto_contraseña"
                 />
 
             <EditText
-                android:id="@+id/edit_contraseña"
+                android:id="@+id/edit_contraseña_perfil"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPassword"
@@ -83,14 +83,14 @@
                 />
 
             <TextView
-                android:id="@+id/repetir_contraseña"
+                android:id="@+id/repetir_contraseña_perfil"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/repetir_contraseña"
                 />
 
             <EditText
-                android:id="@+id/edit_repetir_contraseña"
+                android:id="@+id/edit_repetir_contraseña_perfil"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPassword"
@@ -98,7 +98,7 @@
                 />
 
             <TextView
-                android:id="@+id/telefono"
+                android:id="@+id/telefono_perfil"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/telefono"
@@ -113,57 +113,58 @@
                 android:layout_gravity="center_horizontal" />
 
             <TextView
-                android:id="@+id/comuna"
+                android:id="@+id/comuna_perfil"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/comuna"
                 />
 
             <Spinner
-                android:id="@+id/spin_comuna"
+                android:id="@+id/spin_comuna_perfil"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
             </Spinner>
 
             <TextView
-                android:id="@+id/direccion"
+                android:id="@+id/direccion_perfil"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/direccion"
                 />
 
             <EditText
-                android:id="@+id/edit_direccion"
+                android:id="@+id/edit_direccion_perfil"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 />
 
             <TextView
-                android:id="@+id/fecha_nacimiento"
+                android:id="@+id/fecha_nacimiento_perfil"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/fecha_nacimiento"
                 />
 
             <ImageButton
-                android:id="@+id/imagen_nacimiento"
+                android:id="@+id/imagen_nacimiento_perfil"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:src="@drawable/imagenbuttoncalendar"
                 />
 
             <TextView
-                android:id="@+id/fecha_registro"
+                android:id="@+id/fecha_registro_perfil"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 />
 
             <Button
-                android:id="@+id/boton_aceptar"
+                android:id="@+id/boton_aceptar_perfil"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/boton_aceptar"
                 />
         </LinearLayout>
     </ScrollView>
+
 </LinearLayout>

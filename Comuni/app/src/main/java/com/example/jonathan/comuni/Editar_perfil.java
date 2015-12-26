@@ -2,8 +2,11 @@ package com.example.jonathan.comuni;
 
 import android.app.DatePickerDialog;
 import android.app.Dialog;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -11,13 +14,15 @@ import android.widget.DatePicker;
 import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Calendar;
 
-public class RegistroActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
+public class Editar_perfil extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
 
     Spinner spinner;
+
     TextView date;
     ImageButton boton_calendario;
     int mYear;
@@ -28,13 +33,12 @@ public class RegistroActivity extends AppCompatActivity implements AdapterView.O
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_registro);
+        setContentView(R.layout.activity_editar_perfil);
 
-        spinner = (Spinner) findViewById(R.id.spin_comuna);
-        date = (TextView) findViewById(R.id.fecha_registro);
-        boton_calendario = (ImageButton) findViewById(R.id.imagen_nacimiento);
+        spinner = (Spinner) findViewById(R.id.spin_comuna_perfil);
+        date = (TextView) findViewById(R.id.fecha_registro_perfil);
+        boton_calendario = (ImageButton) findViewById(R.id.imagen_nacimiento_perfil);
 
-        spinner.setOnItemSelectedListener(this);
         boton_calendario.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -89,9 +93,7 @@ public class RegistroActivity extends AppCompatActivity implements AdapterView.O
         ArrayAdapter<String> DataComuna = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_dropdown_item,comunas);
 
         spinner.setAdapter(DataComuna);
-
     }
-
 
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -103,6 +105,7 @@ public class RegistroActivity extends AppCompatActivity implements AdapterView.O
     public void onNothingSelected(AdapterView<?> parent) {
 
     }
+
     private void updateDisplay(){
         date.setText(new StringBuilder().append(mYear).append("-").append(mMonth + 1).append("-").append(mDay));
     }
@@ -125,4 +128,39 @@ public class RegistroActivity extends AppCompatActivity implements AdapterView.O
         }
         return null;
     }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_usuario, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.ver_eventos:
+                Intent ver_evento = new Intent(Editar_perfil.this, Ver_eventos.class);
+                startActivity(ver_evento);
+                break;
+            case R.id.notificaciones:
+                Toast.makeText(getApplicationContext(), "Aprete notificaciones", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.editar_perfil:
+                Intent editar_perfil = getIntent();
+                finish();
+                startActivity(editar_perfil);
+                break;
+            case R.id.solicitud:
+                Intent solicitud_evento = new Intent(Editar_perfil.this, Solicitar_evento.class);
+                startActivity(solicitud_evento);
+                break;
+            case R.id.salir:
+                finish();
+                System.exit(0);
+                break;
+
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
 }

@@ -20,4 +20,11 @@
     <string name="menu_editar_perfil">Editar perfil</string>
     <string name="menu_solicitud">Solicitud</string>
     <string name="menu_salir">Salir</string>
+    <string name="ingrese_solicitud">Ingrese solicitud</string>
+    <string name="titulo_evento">Titulo de evento</string>
+    <string name="fecha_evento">Fecha</string>
+    <string name="direccion_evento">Direccion</string>
+    <string name="foto_evento">Foto</string>
+    <string name="descripcion_evento">Descripcion</string>
+    <string name="modificar_datos">Modifique sus datos</string>
 </resources>
