@@ -27,7 +27,22 @@ public class JsonHandler {
         }
         return null;
     }
-
+    public String[] getDetalle(String actors,int pos){
+        try {
+            JSONArray ja = new JSONArray(actors);
+            JSONObject row = ja.getJSONObject(pos);
+            String[] result = new String[5];
+            result[0]=row.getString("titulo");
+            result[1]=row.getString("descripcion");
+            result[2]=row.getString("nombreComuna");
+            result[3]=row.getString("direccion");
+            result[4]=row.getString("horaInicio");
+            return result;
+        } catch (JSONException e) {
+            Log.e("ERROR", this.getClass().toString() + " " + e.toString());
+        }
+        return null;
+    }
     public String[] getUsuarios(String usuarios) {
         try {
             JSONArray ja = new JSONArray(usuarios);

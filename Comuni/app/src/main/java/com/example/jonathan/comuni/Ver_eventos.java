@@ -16,6 +16,8 @@ import android.widget.Spinner;
 import android.util.Log;
 import android.widget.Toast;
 
+import android.widget.AdapterView.OnItemClickListener;
+import android.widget.AdapterView.OnItemSelectedListener;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,6 +26,7 @@ public class Ver_eventos extends AppCompatActivity implements AdapterView.OnItem
 
     private BroadcastReceiver br = null;
     private final String URL_GET = "http://192.168.0.11:8080/COMUNIbackend/eventos";
+    private String jsonData;
     ListView evento;
 
 
@@ -36,7 +39,6 @@ public class Ver_eventos extends AppCompatActivity implements AdapterView.OnItem
         evento = (ListView) findViewById(R.id.lista_eventos);
 
 
-      //Esto se reemplaza por el getEvent
         IntentFilter intentFilter = new IntentFilter("httpData");
         br = new BroadcastReceiver() {
             @Override
@@ -72,7 +74,28 @@ public class Ver_eventos extends AppCompatActivity implements AdapterView.OnItem
         eventos.add("Taller de daily meeting");
 
        */
+        evento.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            public void onItemClick(AdapterView parent, View v, int position, long id) {
+                // Start your Activity according to the item just clicked.
+
+                 String item = parent.getItemAtPosition(position).toString();
+
+                // Toast.makeText(getApplicationContext(),"Selecciono: "+item,Toast.LENGTH_LONG).show(
+                //JsonHandler jh = new JsonHandler();
+                //String[] datos_detalle = jh.getDetalle(this.toString(jsonData), position);
+                Intent i = new Intent(Ver_eventos.this, detalle_evento.class);
+                //i.putExtra("titulo", datos_detalle[0]);
+                //i.putExtra("descripcion", datos_detalle[1]);
+                //i.putExtra("comuna", datos_detalle[2]);
+                //i.putExtra("direccion", datos_detalle[3]);
+                //i.putExtra("popularidad", datos_detalle[4]);
+                startActivity(i);
+
+            }
+        });
+
     }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -123,4 +146,6 @@ public class Ver_eventos extends AppCompatActivity implements AdapterView.OnItem
     public void onNothingSelected(AdapterView<?> parent) {
 
     }
+
+
 }
