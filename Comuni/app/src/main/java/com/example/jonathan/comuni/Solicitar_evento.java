@@ -26,8 +26,7 @@ public class Solicitar_evento extends AppCompatActivity {
     static final int DATE_DIALOG_ID = 0;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    protected void onCreate(Bundle savedInstanceState) {        super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_solicitar_evento);
 
         date = (TextView) findViewById(R.id.fecha_registro_evento);
@@ -43,12 +42,13 @@ public class Solicitar_evento extends AppCompatActivity {
         final Calendar c = Calendar.getInstance();
         mYear = c.get(Calendar.YEAR);
         mMonth = c.get(Calendar.MONTH);
+        mMonth = mMonth +1;
         mDay = c.get(Calendar.DAY_OF_MONTH);
         updateDisplay();
     }
 
     private void updateDisplay(){
-        date.setText(new StringBuilder().append(mYear).append("-").append(mMonth + 1).append("-").append(mDay));
+        date.setText(new StringBuilder().append(mYear).append("-").append(mMonth).append("-").append(mDay));
     }
 
     private DatePickerDialog.OnDateSetListener DateSetListener = new DatePickerDialog.OnDateSetListener() {

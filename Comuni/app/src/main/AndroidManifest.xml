@@ -22,7 +22,7 @@
         </activity>
         <activity android:name=".Ver_eventos" >
         </activity>
-        <activity android:name=".Detalle_evento" >
+        <activity android:name=".detalle_evento" >
         </activity>
         <activity android:name=".Solicitar_evento" >
         </activity>

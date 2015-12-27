@@ -80,7 +80,7 @@ public class Ver_eventos extends AppCompatActivity implements AdapterView.OnItem
 
                  String item = parent.getItemAtPosition(position).toString();
 
-                // Toast.makeText(getApplicationContext(),"Selecciono: "+item,Toast.LENGTH_LONG).show(
+                // Toast.makeText(getApplicationContext(),"Selecciono: "+item,Toast.LENGTH_LONG).show();
                 //JsonHandler jh = new JsonHandler();
                 //String[] datos_detalle = jh.getDetalle(this.toString(jsonData), position);
                 Intent i = new Intent(Ver_eventos.this, detalle_evento.class);

@@ -21,7 +21,7 @@ import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
-    private BroadcastReceiver br = null;
+    private BroadcastReceiver br_1 = null;
     boolean valida = false;
     private final String URL_GET = "http://192.168.0.11:8080/COMUNIbackend/usuarios";
 
@@ -48,13 +48,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         switch (v.getId()){
             case R.id.inicio_sesion:
 //   ESTAS DOS LINEAS SE DEBEN COMENTAR PARA PROBAR QUE FUNCIONA EL LOGIN PERO TIRA UN ERROR DESPUES
-                  Intent ver_evento = new Intent(MainActivity.this, Ver_eventos.class);
-                  startActivity(ver_evento);
+                 // Intent ver_evento = new Intent(MainActivity.this, Ver_eventos.class);
+                  //startActivity(ver_evento);
 
 //      SE DEBEN DESCOMENTAR LAS SIGUIENTES LINEAS
-/*
-                IntentFilter intentFilter = new IntentFilter("httpData");
-                br = new BroadcastReceiver() {
+
+                IntentFilter intentFilter_1 = new IntentFilter("httpData");
+                br_1 = new BroadcastReceiver() {
                     @Override
                     public void onReceive(Context context, Intent intent) {
 
@@ -69,8 +69,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         if( contraseñaPorRevisar.length()!=0 || emailPorRevisar.length()!=0 ) {
                             if (valido == true) {
 
-                                //   Intent ver_evento = new Intent(MainActivity.this, Ver_eventos.class);
-                                //  startActivity(ver_evento);
+                                  Intent ver_evento = new Intent(MainActivity.this, Ver_eventos.class);
+                                  startActivity(ver_evento);
                             } else {
                                 Toast.makeText(getApplicationContext(), "No se ha podido encontrar el usario, por favor ingrese sus datos nuevamente", Toast.LENGTH_SHORT).show();
                             }
@@ -79,7 +79,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         }
                     }
                 };
-                this.registerReceiver(br, intentFilter);
+                this.registerReceiver(br_1, intentFilter_1);
                 systemUtilities su = new systemUtilities(this.getApplicationContext());
                     if (su.isNetworkAvailable()) {
                         new HttpGet(this.getApplicationContext()).execute(URL_GET);
@@ -92,7 +92,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         .getSystemService(Context.INPUT_METHOD_SERVICE);
                 mgr.hideSoftInputFromWindow(this.contraseña.getWindowToken(), 0);
 
-*/
+
                     break;
             case R.id.registrarse:
                 Intent registro = new Intent(MainActivity.this,RegistroActivity.class);
