@@ -127,7 +127,7 @@ public class RegistroActivity extends AppCompatActivity implements AdapterView.O
 
     public void onClick(View v) {
         // Aqui tiene que obtener los datos para ingresar los datos en el formulario
-        Log.i("error","no llego aqui");
+        //Log.i("error","no llego aqui");
         email = emailEnter.getText().toString();
         nombre = nombreEnter.getText().toString();
         apellido = apellidoEnter.getText().toString();
@@ -146,25 +146,29 @@ public class RegistroActivity extends AppCompatActivity implements AdapterView.O
         // APELLIDO
         // CONTRASEÑA
         //                                                                   ****//
-        if(nombre.compareTo("")==0||nombre.compareTo("")==0 ||nombre.compareTo("")==0){
+        if(nombre.compareTo("")==0||email.compareTo("")==0 ||apellido.compareTo("")==0||pass.compareTo("")==0){
             Toast.makeText(getApplicationContext(),"Debe llenar los campos", Toast.LENGTH_LONG).show();
             Log.i("ERROR_USER", "DE");
         }else{
+            if(pass.compareTo(rep_pass)==0) {//si las contraseñas son iguales
 
+                Log.i("TDB_TAG", "EnviarPost(" + email + "," + nombre + "," + apellido + ");");
+                IntentFilter intentFilter = new IntentFilter("httpPostResponse");
 
-            Log.i("TDB_TAG", "EnviarPost(" + email + "," + nombre + "," + apellido + ");");
-            IntentFilter intentFilter = new IntentFilter("httpPostResponse");
-
-            this.registerReceiver(br, intentFilter);
-            systemUtilities su = new systemUtilities(this.getApplicationContext());
-            if (su.isNetworkAvailable()) {
-                Log.i("TBD_TAG","Enviando Nuevo Actor");
-                new HttpPost(this.getApplicationContext(),
-                        "{\"apellido\":\""+apellido+"\", \"direccion\":\""+direccion+"\", \"email\":\""+email+"\", \"fechaNac\":\""+fechaNacimiento+"\", \"nombre\":\""+nombre
-                                +"\", \"password\":\""+pass+"\", \"telefono\":\""+telefono+"\", \"tipo\":\""+tipo+"\", \"userIdComuna\":\""+id_comuna+"\"}", this).execute(URL_POST);
+                this.registerReceiver(br, intentFilter);
+                systemUtilities su = new systemUtilities(this.getApplicationContext());
+                if (su.isNetworkAvailable()) {
+                    Log.i("TBD_TAG", "Enviando Nuevo Actor");
+                    new HttpPost(this.getApplicationContext(),
+                            "{\"apellido\":\"" + apellido + "\", \"direccion\":\"" + direccion + "\", \"email\":\"" + email + "\", \"fechaNac\":\"" + fechaNacimiento + "\", \"nombre\":\"" + nombre
+                                    + "\", \"password\":\"" + pass + "\", \"telefono\":\"" + telefono + "\", \"tipo\":\"" + tipo + "\", \"userIdComuna\":\"" + id_comuna+ "\"}", this).execute(URL_POST);
+                } else {
+                    Log.e("TBD_TAG", "error de red");
+                    Toast.makeText(this.getApplicationContext(), "Error de conexión , intenta de nuevo o más tarde", Toast.LENGTH_LONG).show();
+                }
             }else{
-                Log.e("TBD_TAG", "error de red");
-                Toast.makeText(this.getApplicationContext(),"Error de conexión , intenta de nuevo o más tarde",Toast.LENGTH_LONG).show();
+
+                Toast.makeText(this.getApplicationContext(), "Las contraseñas deben coincidir", Toast.LENGTH_LONG).show();
             }
 
         }
@@ -210,8 +214,7 @@ public class RegistroActivity extends AppCompatActivity implements AdapterView.O
         if(s.compareTo("No Content")==0){
 
             Log.i("TBD_TAG", "Añadido");
-            Toast.makeText(this,
-                    "Actor añadido exitosamente", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "Se ha registrado exitosamente", Toast.LENGTH_LONG).show();
             InputMethodManager mgr = (InputMethodManager) this
                     .getSystemService(Context.INPUT_METHOD_SERVICE);
             mgr.hideSoftInputFromWindow(this.direccionEnter.getWindowToken(), 0);

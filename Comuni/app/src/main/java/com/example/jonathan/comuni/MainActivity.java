@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onResume();
         setContentView(R.layout.activity_main);
 
-        email = (EditText) findViewById(R.id.usuario);
+        email = (EditText) findViewById(R.id.edit_emailMain);
         contraseña = (EditText) findViewById(R.id.contraseña);
         boton_registro = (Button) findViewById(R.id.registrarse);
         boton_inicio = (Button) findViewById(R.id.inicio_sesion);
@@ -48,12 +48,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         switch (v.getId()){
             case R.id.inicio_sesion:
 //   ESTAS DOS LINEAS SE DEBEN COMENTAR PARA PROBAR QUE FUNCIONA EL LOGIN PERO TIRA UN ERROR DESPUES
-                 // Intent ver_evento = new Intent(MainActivity.this, Ver_eventos.class);
-                  //startActivity(ver_evento);
+                  Intent ver_evento = new Intent(MainActivity.this, Ver_eventos.class);
+                  startActivity(ver_evento);
 
 //      SE DEBEN DESCOMENTAR LAS SIGUIENTES LINEAS
-
-                IntentFilter intentFilter_1 = new IntentFilter("httpData");
+/*
+                IntentFilter intentFilter_1 = new IntentFilter("httpData_1");
                 br_1 = new BroadcastReceiver() {
                     @Override
                     public void onReceive(Context context, Intent intent) {
@@ -92,6 +92,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         .getSystemService(Context.INPUT_METHOD_SERVICE);
                 mgr.hideSoftInputFromWindow(this.contraseña.getWindowToken(), 0);
 
+*/
 
                     break;
             case R.id.registrarse:
@@ -100,7 +101,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
 
         }
-
     }
 
     public boolean validar(String emailPorRevisar, String contraseñaPorRevisar, String[] datos_usuarios){
