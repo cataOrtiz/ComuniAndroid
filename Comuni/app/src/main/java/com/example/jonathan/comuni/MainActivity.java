@@ -19,7 +19,7 @@ import java.lang.String;
 
 import java.util.Objects;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener{
+public class MainActivity extends AppCompatActivity implements View.OnClickListener{//
 
     private BroadcastReceiver br_1 = null;
     boolean valida = false;
@@ -47,13 +47,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
          final boolean[] valido = {false};
         switch (v.getId()){
             case R.id.inicio_sesion:
-//   ESTAS DOS LINEAS SE DEBEN COMENTAR PARA PROBAR QUE FUNCIONA EL LOGIN PERO TIRA UN ERROR DESPUES
-                  Intent ver_evento = new Intent(MainActivity.this, Ver_eventos.class);
-                  startActivity(ver_evento);
+//   ESTAS DOS LINEAS SE DEBEN COMENTAR PARA PROBAR QUE FUNCIONA EL LOGIN PERO TIRA UN ERROR DESPUESd
+                 // Intent ver_evento = new Intent(MainActivity.this, Ver_eventos.class);
+                 // startActivity(ver_evento);
 
 //      SE DEBEN DESCOMENTAR LAS SIGUIENTES LINEAS
-/*
-                IntentFilter intentFilter_1 = new IntentFilter("httpData_1");
+
+                IntentFilter intentFilter_1 = new IntentFilter("httpData_usuario");
                 br_1 = new BroadcastReceiver() {
                     @Override
                     public void onReceive(Context context, Intent intent) {
@@ -63,7 +63,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         String contraseñaPorRevisar = contraseña.getText().toString();
                         String emailPorRevisar = email.getText().toString();
                         boolean valido=false;
-                        String [] datos_usuarios= jh.getUsuarios(intent.getStringExtra("data"));
+                        String [] datos_usuarios= jh.getUsuarios(intent.getStringExtra("data_usuario"));
                         valido = validar(emailPorRevisar, contraseñaPorRevisar, datos_usuarios);
 
                         if( contraseñaPorRevisar.length()!=0 || emailPorRevisar.length()!=0 ) {
@@ -72,7 +72,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                                   Intent ver_evento = new Intent(MainActivity.this, Ver_eventos.class);
                                   startActivity(ver_evento);
                             } else {
-                                Toast.makeText(getApplicationContext(), "No se ha podido encontrar el usario, por favor ingrese sus datos nuevamente", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(getApplicationContext(), "No se ha podido encontrar el usuario, por favor ingrese sus datos nuevamente", Toast.LENGTH_SHORT).show();
                             }
                         }else{
                             Toast.makeText(getApplicationContext(), "No ha iniciado sesion, por favor ingrese sus datos", Toast.LENGTH_SHORT).show();
@@ -82,7 +82,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 this.registerReceiver(br_1, intentFilter_1);
                 systemUtilities su = new systemUtilities(this.getApplicationContext());
                     if (su.isNetworkAvailable()) {
-                        new HttpGet(this.getApplicationContext()).execute(URL_GET);
+                        new httpGet_usuario(this.getApplicationContext()).execute(URL_GET);
                         Log.e("err en el if", this.getClass().toString() + " " + toString());
                     } else {
                         Toast.makeText(this, "no hay conexion a internet", Toast.LENGTH_SHORT).show();
@@ -91,8 +91,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 InputMethodManager mgr = (InputMethodManager) this
                         .getSystemService(Context.INPUT_METHOD_SERVICE);
                 mgr.hideSoftInputFromWindow(this.contraseña.getWindowToken(), 0);
-
-*/
 
                     break;
             case R.id.registrarse:

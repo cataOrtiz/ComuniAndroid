@@ -94,7 +94,7 @@ public class HttpPostEvento extends AsyncTask<String, Void, String> {
         Intent intent = new Intent("httpPostResponse").putExtra("data", result);
 
         context.sendBroadcast(intent);
-        this.ni.agregado(result);
+      //  this.ni.agregado(result);
         this.ni.getFragmentManager().popBackStackImmediate();
     }
 

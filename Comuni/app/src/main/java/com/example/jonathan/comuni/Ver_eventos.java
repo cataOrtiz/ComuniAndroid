@@ -112,6 +112,9 @@ public class Ver_eventos extends AppCompatActivity implements AdapterView.OnItem
                 startActivity(ver_evento);
                 break;
             case R.id.notificaciones:
+
+                Intent solicitar_evento = new Intent(Ver_eventos.this, Solicitar_evento.class);
+                startActivity(solicitar_evento);
                 Toast.makeText(getApplicationContext(), "Aprete notificaciones", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.editar_perfil:
@@ -119,8 +122,6 @@ public class Ver_eventos extends AppCompatActivity implements AdapterView.OnItem
                 startActivity(editar_perfil);
                 break;
             case R.id.solicitud:
-                Intent solicitar_evento = new Intent(Ver_eventos.this, Solicitar_evento.class);
-                startActivity(solicitar_evento);
                 break;
             case R.id.salir:
                 finish();

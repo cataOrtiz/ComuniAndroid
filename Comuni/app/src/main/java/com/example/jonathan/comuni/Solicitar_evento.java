@@ -125,7 +125,7 @@ public class Solicitar_evento extends AppCompatActivity implements View.OnClickL
     }
 
 
-     private void updateDisplay(){
+    private void updateDisplay(){
         date.setText(new StringBuilder().append(mYear).append("-").append(mMonth).append("-").append(mDay));
     }
 
